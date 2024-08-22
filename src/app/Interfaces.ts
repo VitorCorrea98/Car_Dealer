@@ -12,7 +12,7 @@ export interface IForm {
 
 export const formInitialValue: IForm = {
   type: '',
-  year: ''
+  year: '2015'
 }
 
 export interface IResult {

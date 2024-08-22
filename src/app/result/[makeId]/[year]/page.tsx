@@ -11,9 +11,11 @@ const getCars = async (makeId: string, year: string) => {
 export default async function ResultPage({ params }: {params: {makeId: string, year: string}}) {
   const {makeId, year} = params
   const cars = await getCars(makeId, year)
+
+  if(cars.length === 0) return (<span>No cars found for {makeId} and {year}</span>)
+
   return (
     <div>
-      <h1>Search result:</h1>
       <Suspense fallback={<span>Loading...</span>}>
         {cars.map((car) => (
           <CarsCard key={car.Model_ID} car={car}/>
